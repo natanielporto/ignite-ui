@@ -25,5 +25,17 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  features: {
+    storyStoreV7: true,
+  },
+  viteFinal: (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      config.base = "ignite-ui";
+    }
+    return config;
+  },
 };
 export default config;
